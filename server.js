@@ -1,16 +1,20 @@
 // DEPENDENCIES
 const express = require('express')
 const mongoose = require('mongoose')
+
 // CONFIGURATION
 const app = express()
 require('dotenv').config()
 const PORT = process.env.PORT
+
 // MIDDLEWARE
 app.use(express.json())
 app.use(express.static('public'))
+
 // ROUTES
 // const notesConroller = require('./controllers/animals_controller.js')
 // app.use('/notes', notesConroller)
+
 // DATABASE
 const MONGODB_URI = process.env.MONGODB_URI
 mongoose.connect(MONGODB_URI, {
@@ -18,7 +22,8 @@ mongoose.connect(MONGODB_URI, {
   useUnifiedTopology: true,
   useFindAndModify: false
 })
-Error / success
+
+// Error / success
 mongoose.connection.on('error', err =>
   console.log(
     err.message,
@@ -32,6 +37,7 @@ mongoose.connection.on('disconnected', () => console.log('mongo disconnected'))
 app.get('/notes', (req,res) => {
   res.send('Hello Alby')
 })
+
 // LISTENER
 app.listen(PORT, () => {
   console.log('listening on port...', PORT)
