@@ -2,7 +2,8 @@ class App extends React.Component {
     state = {
         title: '',
         description: '',
-        notes: []
+        notes: [],
+        show: false
     }
 
     //DON'T LOAD UNTIL EVERYTHING IS MOUNTED ON THE DOM
@@ -31,7 +32,8 @@ class App extends React.Component {
             this.setState({
                 notes: response.data,
                 title: '',
-                description: ''
+                description: '',
+                show: false
             })
         })
     }
@@ -57,6 +59,14 @@ class App extends React.Component {
         })
     }
 
+    //TOGGLE FORM
+      toggleForm = (event) => {
+          this.setState({
+            show: !this.state.show
+          })
+      }
+
+
     //HOW THE INFO SHOULD DISPLAY ON SCREEN, COMBINING HTML w/ JS USING REACT
     render = () => {
         return(
@@ -66,12 +76,11 @@ class App extends React.Component {
                   <a className="navbar-brand" href="#">Note It</a>
                   </li>
                 <li>
-                  <button><i className="fas fa-plus"></i></button>
+                  <button onClick={this.toggleForm} className="btn btn-light"><i className="fas fa-plus"></i></button>
                 </li>
               </nav>
-                <h2>Create a Note</h2>
                 <div className="form-group">
-                <form onSubmit={this.handleSubmit}>
+                {this.state.show ? <form className="modal-fade" onSubmit={this.handleSubmit}> <h2>Create a Note</h2>
                     <label htmlFor="title">Title: </label>
                     <input className="form-control" id="title" onChange={this.handleChange} type="text"/>
                     <br />
@@ -80,6 +89,7 @@ class App extends React.Component {
                     <br />
                 <button type="submit" className="btn btn-primary">Create Note</button>
                 </form>
+                : null}
                 </div>
                     <h3>List of Notes</h3>
                     <ul>
