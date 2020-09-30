@@ -46,6 +46,7 @@ class App extends React.Component {
     //HOW TO ADD AFTER SUBMIT -- GET THE NOTES AFTER POST & ADD IT, PREVENT AUTO REFRESH
     handleSubmit = (event) => {
         event.preventDefault()
+        event.target.reset()
         axios.post('/notes', this.state).then(response => {
             this.setState({
                 notes: response.data,
@@ -60,42 +61,49 @@ class App extends React.Component {
     render = () => {
         return(
             <div>
-              <nav className="navbar navbar-expand-lg navbar-light bg-light">Note It</nav>
+              <nav className="navbar navbar-light bg-light">
+                <li>
+                  <a className="navbar-brand" href="#">Note It</a>
+                  </li>
+                <li>
+                  <button><i className="fas fa-plus"></i></button>
+                </li>
+              </nav>
                 <h2>Create a Note</h2>
-
+                <div className="form-group">
                 <form onSubmit={this.handleSubmit}>
                     <label htmlFor="title">Title: </label>
-                    <input id="title" onChange={this.handleChange} type="text"/>
+                    <input className="form-control" id="title" onChange={this.handleChange} type="text"/>
                     <br />
-
                     <label htmlFor="description">Description: </label>
-                    <input id="description" onChange={this.handleChange} type="textarea"/>
+                    <textarea className="form-control" id="description" onChange={this.handleChange} type="textarea"/>
                     <br />
-                <input type="submit" value="Create Note" />
+                <button type="submit" className="btn btn-primary">Create Note</button>
                 </form>
+                </div>
                     <h3>List of Notes</h3>
                     <ul>
                         {this.state.notes.map(note => {
-                            return <li key={note._id}>
+                            return <li className='bottom-li' key={note._id}>
                                 <br />
                                 <h5>{note.title}</h5>
-                                <h6>{note.description}</h6>
-                        <button className="btn btn-danger" value={note._id} onClick={this.deleteNote}>
+                                <p>{note.description}</p>
+                        <button className="btn btn-outline-danger" value={note._id} onClick={this.deleteNote}>
                             Delete
                         </button>
                             <details>
                                 <summary>
-                                    <i class="fas fa-pencil-alt"></i>
+                                    <i className="fas fa-pencil-alt"></i>
                                 </summary>
                                 <form onSubmit={this.updateNote} id={note._id}>
-                            <label htmlFor="title">Title: </label>
+                            <label className="form-group" htmlFor="title">Title: </label>
                             <br />
-                            <input type="text" id="title" onChange={this.handleChange} value={this.state.title} />
+                            <input className="form-control" type="text" id="title" onChange={this.handleChange} value={this.state.title} />
                             <br />
                             <label htmlFor="description">Description: </label>
                             <br />
-                            <input type="textarea" id="description" onChange={this.handleChange} value={this.state.description} />
-                            <input type="submit" value="Update Note" />
+                            <input className="form-control" type="textarea" id="description" onChange={this.handleChange} value={this.state.description} />
+                            <input className="btn btn-outline-success" type="submit" value="Update Note" />
                             </form>
                             </details>
                             </li>
