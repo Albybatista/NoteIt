@@ -2,6 +2,7 @@ const express = require('express')
 const notes = express.Router()
 const Note = require('../models/note.js')
 
+
 // =======================================
 //              ROUTES
 // =======================================

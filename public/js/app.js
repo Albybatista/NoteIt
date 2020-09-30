@@ -6,7 +6,7 @@ class App extends React.Component {
     }
 
     //DON'T LOAD UNTIL EVERYTHING IS MOUNTED ON THE DOM
-    componentDidMount() {
+    componentDidMount = () => {
         axios.get('/notes').then((response) => {
             this.setState({
                 notes: response.data
@@ -15,8 +15,8 @@ class App extends React.Component {
     }
 
     //DELETE -- DELETE
-    deleteNote (event) {
-        axios.delete('/notes/' + event.target.value).then(response => 
+    deleteNote = (event) => {
+        axios.delete('/notes/' + event.target.value).then(response =>
             this.setState({
                 notes: response.data
             })
@@ -24,7 +24,7 @@ class App extends React.Component {
     }
 
     //UPDATE -- PUT
-    updateNote (event) {
+    updateNote = (event) => {
         event.preventDefault()
         const id = event.target.id
         axios.put('/notes/' + id, this.state).then(response => {
@@ -37,14 +37,14 @@ class App extends React.Component {
     }
 
     //HOW TO SET THE CHANGES
-    handleChange (event) {
+    handleChange = (event) => {
         this.setState({
             [event.target.id]: event.target.value
         })
     }
-    
+
     //HOW TO ADD AFTER SUBMIT -- GET THE NOTES AFTER POST & ADD IT, PREVENT AUTO REFRESH
-    handleSubmit (event) {
+    handleSubmit = (event) => {
         event.preventDefault()
         axios.post('/notes', this.state).then(response => {
             this.setState({
@@ -57,7 +57,7 @@ class App extends React.Component {
     }
 
     //HOW THE INFO SHOULD DISPLAY ON SCREEN, COMBINING HTML w/ JS USING REACT
-    render() {
+    render = () => {
         return(
             <div>
                 <h2>Create a Note</h2>
@@ -74,13 +74,13 @@ class App extends React.Component {
                 </form>
                     <h3>List of Notes</h3>
                     <ul>
-                        {this.state.notes.map(notes => {
+                        {this.state.notes.map(note => {
                             return <li key={note._id}>
                                 <br />
                                 <h5>{note.title}</h5>
                                 <h6>{note.description}</h6>
                         <button className="btn btn-danger" value={note._id} onClick={this.deleteNote}>
-                            Delete 
+                            Delete
                         </button>
                             <details>
                                 <summary>
