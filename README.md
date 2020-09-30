@@ -1,1 +1,3 @@
 # NotesApp
+
+Sammy Schneider 
