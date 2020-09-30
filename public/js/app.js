@@ -84,7 +84,7 @@ class App extends React.Component {
                         </button>
                             <details>
                                 <summary>
-                                    Edit Note
+                                    <i class="fas fa-pencil-alt"></i>
                                 </summary>
                                 <form onSubmit={this.updateNote} id={note._id}>
                             <label htmlFor="title">Title: </label>
