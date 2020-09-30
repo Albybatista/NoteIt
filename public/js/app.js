@@ -60,6 +60,7 @@ class App extends React.Component {
     render = () => {
         return(
             <div>
+              <nav className="navbar navbar-expand-lg navbar-light bg-light">Note It</nav>
                 <h2>Create a Note</h2>
 
                 <form onSubmit={this.handleSubmit}>
