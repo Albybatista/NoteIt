@@ -1,0 +1,23 @@
+{
+  "name": "notesapp",
+  "version": "1.0.0",
+  "description": "Sammy Schneider",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Albybatista/NotesApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Albybatista/NotesApp/issues"
+  },
+  "homepage": "https://github.com/Albybatista/NotesApp#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
