@@ -18,7 +18,7 @@ mongoose.connect(MONGODB_URI, {
   useUnifiedTopology: true,
   useFindAndModify: false
 })
-Error / success
+// Error / success
 mongoose.connection.on('error', err =>
   console.log(
     err.message,
