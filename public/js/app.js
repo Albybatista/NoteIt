@@ -73,7 +73,7 @@ class App extends React.Component {
                     <br />
                 <input type="submit" value="Create Note" />
                 </form>
-                    <h3>List of Notes</h3>
+                    <h3>Note Box</h3>
                     <ul>
                         {this.state.notes.map(note => {
                             return <li key={note._id}>
@@ -81,7 +81,7 @@ class App extends React.Component {
                                 <h5>{note.title}</h5>
                                 <h6>{note.description}</h6>
                         <button className="btn btn-danger" value={note._id} onClick={this.deleteNote}>
-                            Delete
+                            <i className="fas fa-times"></i>
                         </button>
                             <details>
                                 <summary>
