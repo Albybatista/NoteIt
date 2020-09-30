@@ -12,8 +12,8 @@ app.use(express.json())
 app.use(express.static('public'))
 
 // ROUTES
-// const notesConroller = require('./controllers/animals_controller.js')
-// app.use('/notes', notesConroller)
+const notesConroller = require('./controllers/notes_controller.js')
+app.use('/notes', notesConroller)
 
 // DATABASE
 const MONGODB_URI = process.env.MONGODB_URI
@@ -22,7 +22,6 @@ mongoose.connect(MONGODB_URI, {
   useUnifiedTopology: true,
   useFindAndModify: false
 })
-
 // Error / success
 mongoose.connection.on('error', err =>
   console.log(
