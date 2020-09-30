@@ -1,0 +1,27 @@
+ li {
+  list-style-type: none;
+}
+
+.bottom-li {
+  list-style-type: none;
+  background-color: #efff0052;
+  width: fit-content;
+  padding: 2%;
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  /* justify-content: space-around; */
+  margin: 2%;
+  border-radius: 7px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
+}
+
+ul{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+#createbtn {
+    display: flex;
+    justify-content: flex;
+}
