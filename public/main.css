@@ -1,0 +1,43 @@
+ li {
+  list-style-type: none;
+}
+.bottom-li {
+  list-style-type: none;
+  background-color: #fffbc8;
+  width: fit-content;
+  padding: 2%;
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  /* justify-content: space-around; */
+  margin: 2%;
+  border-radius: 7px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
+}
+ul{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+body {
+  background-image: url('http://s1.1zoom.net/big3/230/School_Wood_planks_Notepad_Pencils_Ballpoint_pen_556945_6026x4017.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+h2 {
+  text-align: center;
+  color: white;
+}
+.note {
+  font-weight: 600;
+}
+.cars {
+  opacity: 0.7px;
+}
+label {
+  color: white;
+  font-size: larger;
+}
+.formzz {
+  color: black;
+}
