@@ -71,16 +71,21 @@ class App extends React.Component {
     render = () => {
         return(
             <div>
-              <nav className="navbar navbar-light bg-light">
+              <nav className="navbar navbar-light bg-light cars">
                 <li>
-                  <a className="navbar-brand" href="#">Note It</a>
+                  <a className="navbar-brand note" href="#">Note It</a>
                   </li>
                 <li>
-                  <button onClick={this.toggleForm} className="btn btn-light"><i className="fas fa-plus"></i></button>
+                  <button onClick={this.toggleForm} data-toggle='modal' className="btn btn-light"><i className="fas fa-plus"></i></button>
                 </li>
               </nav>
+              <div className="modal-fade">
+              <div className="modal-dialog">
                 <div className="form-group">
-                {this.state.show ? <form className="modal-fade" onSubmit={this.handleSubmit}> <h2>Create a Note</h2>
+                {this.state.show ? <form onSubmit={this.handleSubmit}> <div className="text-center">
+                      <h2 className="display-4 font-bold white-text mb-2">Create a Note</h2>
+                      </div>
+                      <hr className="hr-light my-4 wow fadeInDown" data-wow-delay="0.4s"/>
                     <label htmlFor="title">Title: </label>
                     <input className="form-control" id="title" onChange={this.handleChange} type="text"/>
                     <br />
@@ -91,7 +96,11 @@ class App extends React.Component {
                 </form>
                 : null}
                 </div>
-                    <h3>List of Notes</h3>
+                </div></div>
+                <div className="text-center">
+                <h2 className="display-4 font-bold white-text mb-2">Note Box</h2>
+                </div>
+                <hr className="hr-light my-4 wow fadeInDown" data-wow-delay="0.4s"/>
                     <ul>
                         {this.state.notes.map(note => {
                             return <li className='bottom-li' key={note._id}>
@@ -108,7 +117,7 @@ class App extends React.Component {
                                 <form onSubmit={this.updateNote} id={note._id}>
                             <label className="form-group" htmlFor="title">Title: </label>
                             <br />
-                            <input className="form-control" type="text" id="title" onChange={this.handleChange} value={this.state.title} />
+                            <input className="form-control formzz" type="text" id="title" onChange={this.handleChange} value={this.state.title} />
                             <br />
                             <label htmlFor="description">Description: </label>
                             <br />
