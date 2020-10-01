@@ -1,3 +1,3 @@
-# NotesApp
+# NoteIt
 
-Sammy Schneider 
+
